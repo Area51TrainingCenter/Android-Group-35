@@ -1,1 +1,4 @@
-# Android-Group-35
+Grupo 35 del curso de Android
+
+Instructor: Segundo Acosta Delgado
+Twitter: @2doacosta
