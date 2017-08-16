@@ -3,5 +3,8 @@
 
     <!-- Screen MainActivity -->
     <string name="welcome_title">Bienvenido al App Clase02</string>
+    <string name="welcome_txt">Ingresa el texto</string>
+    <string name="welcome_btn">Agregar</string>
+    <string name="welcome_error">Ups! No ingresaste un texto :v</string>
 
 </resources>
