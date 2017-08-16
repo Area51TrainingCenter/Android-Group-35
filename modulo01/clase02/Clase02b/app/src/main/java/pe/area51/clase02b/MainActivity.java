@@ -39,7 +39,10 @@ public class MainActivity extends AppCompatActivity {
                 String cadena = txt.getText().toString();
 
                 if (!cadena.equals("")) {
+                    cadena = title.getText() + " \n" + cadena;
                     title.setText(cadena);
+                    txt.setText("");
+
                 } else {
                     /*
                     Toast.makeText(context,
@@ -47,10 +50,10 @@ public class MainActivity extends AppCompatActivity {
                             , Toast.LENGTH_SHORT);
                     */
 
-
                     Toast.makeText(context,
                             R.string.welcome_error
-                            , Toast.LENGTH_SHORT);
+                            , Toast.LENGTH_SHORT)
+                            .show();
 
                 }
 
