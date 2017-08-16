@@ -17,37 +17,38 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Log.d("","");
-
-
-
-
-
+        Log.d(tag,"onCreate");
 
     }
 
     @Override
     protected void onStart() {
         super.onStart();
+        Log.d(tag,"onStart");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+        Log.d(tag,"onResume");
     }
 
     @Override
     protected void onPause() {
         super.onPause();
+        Log.d(tag,"onPause");
     }
 
     @Override
     protected void onStop() {
         super.onStop();
+        Log.d(tag,"onStop");
+
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        Log.d(tag,"onDestroy");
     }
 }
