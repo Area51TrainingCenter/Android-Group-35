@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">El nuevo Facebook :v</string>
+
+    <!-- Screen MainActivity -->
+    <string name="welcome_title">Bienvenido al App Clase02</string>
+
+</resources>
