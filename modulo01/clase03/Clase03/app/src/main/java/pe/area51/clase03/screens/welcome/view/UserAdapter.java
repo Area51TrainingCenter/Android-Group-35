@@ -1,9 +1,7 @@
 package pe.area51.clase03.screens.welcome.view;
 
 import android.content.Context;
-import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +13,7 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import java.util.ArrayList;
 
 import pe.area51.clase03.R;
+import pe.area51.clase03.helpers.frescolib.HelperImageClase03;
 import pe.area51.clase03.models.UserModel;
 
 /**
@@ -58,6 +57,17 @@ public class UserAdapter extends ArrayAdapter<UserModel> {
         //enlazar datos al diseño(xml)
         vh.name.setText(getItem(position).getName());
         vh.description.setText(getItem(position).getDescription());
+
+        //Para un ImageView
+        //vh.photo.setImageResource(R.drawable.img_1);
+
+        HelperImageClase03 loader = new HelperImageClase03(context);
+        loader.url = getItem(position).getPhoto();
+        loader.view = vh.photo;
+        loader.show();
+
+
+
 
 
         return view;

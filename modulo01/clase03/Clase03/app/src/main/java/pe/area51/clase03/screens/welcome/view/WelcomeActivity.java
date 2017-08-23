@@ -23,7 +23,7 @@ public class WelcomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
-        users = (ListView)findViewById(R.id.users);
+        users = (ListView) findViewById(R.id.users);
 
         context = this;
         loadUsers();
@@ -43,6 +43,12 @@ public class WelcomeActivity extends AppCompatActivity {
             //Le enviamos la información de las propiedades del objeto
             user.setName("Nombre " + i);
             user.setDescription("Descripción" + i);
+            //Asignamos dirección de la foto
+            //user.setPhoto("res:///" + R.drawable.img_1);
+
+            //user.setPhoto("res:///R.drawable.img_" + i);
+            //Asignamos imagen de internet
+            //user.setPhoto("http://segundoacosta.com/static/sample_" + i + ".jpg");
 
             //Añadimos el objeto al arreglo
             Clase03Globals.lista.add(user);
