@@ -6,5 +6,7 @@
 
     <!-- Screen Welcome -->
     <color name="welcome_name">#7E859A</color>
+    <color name="welcome_description">#B2BFC5</color>
+
 
 </resources>
