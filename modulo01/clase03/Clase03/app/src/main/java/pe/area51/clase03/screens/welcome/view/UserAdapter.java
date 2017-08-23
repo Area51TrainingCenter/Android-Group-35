@@ -38,14 +38,27 @@ public class UserAdapter extends ArrayAdapter<UserModel> {
         ViewHolder vh;
 
         if (view == null) {
+            //Asignamos el row_user.xml al view del elemento a mostrar
             view = LayoutInflater.from(context)
                     .inflate(R.layout.row_user, parent, false);
-
+            //Inicializamos la instancia de la clase en memoria
             vh = new ViewHolder();
+            //Vinculamos los componente con la clase ViewHolder
+            vh.name = (TextView) view.findViewById(R.id.name);
+            vh.description = (TextView) view.findViewById(R.id.description);
+            vh.photo = (SimpleDraweeView) view.findViewById(R.id.photo);
+            //Guardamos en memoria la vinculación a los datos
+            //una sola vez en la propiedad tag() del view
+            view.setTag(vh);
 
         } else {
-
+            vh = (ViewHolder) view.getTag();
         }
+
+        //enlazar datos al diseño(xml)
+        vh.name.setText(getItem(position).getName());
+        vh.description.setText(getItem(position).getDescription());
+
 
         return view;
     }
