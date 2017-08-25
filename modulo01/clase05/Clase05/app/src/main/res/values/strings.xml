@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Clase05</string>
+
+    <!-- Screen Home -->
+    <string name="home_btn_gridview">Ir al GridView</string>
+    <string name="home_btn_listview">Ir al Listview</string>
+    <string name="home_btn_viewpager">Ir al ViewPager</string>
+
+
 </resources>
