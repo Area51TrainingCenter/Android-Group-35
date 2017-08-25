@@ -19,4 +19,5 @@ public class GridViewActivity extends AppCompatActivity {
         super.onDestroy();
         Log.d("Clase05","onDestroy");
     }
+
 }
