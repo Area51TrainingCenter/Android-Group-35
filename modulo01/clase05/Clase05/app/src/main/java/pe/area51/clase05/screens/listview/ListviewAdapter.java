@@ -57,7 +57,7 @@ public class ListviewAdapter extends ArrayAdapter<PersonModel> {
 
         vh.name.setText(pm.getName());
         vh.message.setText(pm.getMessage());
-        vh.message_count.setText(pm.getMessage_count());
+        vh.message_count.setText("" + pm.getMessage_count());
         vh.time.setText(pm.getTime());
 
         HelperImageClase03 loader = new HelperImageClase03(context);

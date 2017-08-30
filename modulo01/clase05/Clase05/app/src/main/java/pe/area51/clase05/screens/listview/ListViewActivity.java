@@ -17,6 +17,8 @@ public class ListViewActivity extends AppCompatActivity {
     ListView people;
     Context context;
 
+    ListviewAdapter adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +27,21 @@ public class ListViewActivity extends AppCompatActivity {
         context = this;
 
         people = (ListView) findViewById(R.id.people);
+
+
+        ArrayList<PersonModel> arreglo = new ArrayList<PersonModel>();
+        for (int i = 1; i < 30; i++) {
+            PersonModel pm = new PersonModel();
+
+            pm.setName("Nombre " + i);
+            pm.setTime("Hoy 9:30");
+            pm.setPhoto("http://segundoacosta.com/people/img_" + i + ".jpg");
+
+            arreglo.add(pm);
+        }
+
+        adapter = new ListviewAdapter(context, arreglo);
+        people.setAdapter(adapter);
 
     }
 
