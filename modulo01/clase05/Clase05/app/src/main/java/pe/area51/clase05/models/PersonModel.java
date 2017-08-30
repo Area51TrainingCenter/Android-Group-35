@@ -1,10 +1,12 @@
 package pe.area51.clase05.models;
 
+import java.io.Serializable;
+
 /**
  * Created by segundo on 24/08/17.
  */
 
-public class PersonModel {
+public class PersonModel implements Serializable {
 
     private String name;
     private String photo;

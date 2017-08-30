@@ -28,7 +28,7 @@
         </activity>
         <activity android:name=".screens.gridview.GridViewActivity" />
         <activity android:name=".screens.listview.ListViewActivity" />
-        <activity android:name=".screens.viewpager.ViewPagerActivity"></activity>
+        <activity android:name=".screens.viewpager.view.ViewPagerActivity"></activity>
     </application>
 
 </manifest>

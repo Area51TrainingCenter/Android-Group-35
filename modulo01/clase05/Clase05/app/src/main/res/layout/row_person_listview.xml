@@ -69,7 +69,10 @@
                 android:layout_gravity="right"
                 android:layout_marginRight="10dp"
                 android:background="@color/listview_message_count_background"
-                android:padding="4dp"
+                android:paddingBottom="2dp"
+                android:paddingLeft="6dp"
+                android:paddingRight="6dp"
+                android:paddingTop="2dp"
                 android:text="@string/app_name"
                 android:textColor="@color/listview_message_count_color"
                 android:textSize="10sp" />

@@ -9,7 +9,7 @@ import android.widget.Button;
 import pe.area51.clase05.R;
 import pe.area51.clase05.screens.gridview.GridViewActivity;
 import pe.area51.clase05.screens.listview.ListViewActivity;
-import pe.area51.clase05.screens.viewpager.ViewPagerActivity;
+import pe.area51.clase05.screens.viewpager.view.ViewPagerActivity;
 
 public class MainActivity extends AppCompatActivity {
 

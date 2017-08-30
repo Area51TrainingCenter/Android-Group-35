@@ -6,5 +6,10 @@
     <string name="home_btn_listview">Ir al Listview</string>
     <string name="home_btn_viewpager">Ir al ViewPager</string>
 
+    <string name="viewpager_title">Aquí van las pestañas</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 
 </resources>

@@ -6,7 +6,10 @@ import android.os.Bundle;
 import android.widget.GridView;
 import android.widget.ListView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Random;
 
 import pe.area51.clase05.R;
 import pe.area51.clase05.models.PersonModel;
@@ -33,9 +36,17 @@ public class ListViewActivity extends AppCompatActivity {
         for (int i = 1; i < 30; i++) {
             PersonModel pm = new PersonModel();
 
+            Random random = new Random();
+
+            //Obtenemos el tiempo actual
+            Calendar cal = Calendar.getInstance();
+            SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+
             pm.setName("Nombre " + i);
-            pm.setTime("Hoy 9:30");
+            pm.setMessage("Mensaje de " + i);
+            pm.setTime("" + sdf.format(cal.getTime())); //Momento actual
             pm.setPhoto("http://segundoacosta.com/people/img_" + i + ".jpg");
+            pm.setMessage_count(random.nextInt(20)); //Cantidad aleatoria
 
             arreglo.add(pm);
         }
@@ -44,7 +55,6 @@ public class ListViewActivity extends AppCompatActivity {
         people.setAdapter(adapter);
 
     }
-
 
 
 }
