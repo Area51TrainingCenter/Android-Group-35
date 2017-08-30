@@ -7,4 +7,16 @@
     <!-- Screen Launcher -->
     <color name="launcher_background">#1ABC9C</color>
 
+    <!-- Generics -->
+    <color name="name_color">#FFF</color>
+    <color name="time_color">#FFF</color>
+
+    <!-- Screen Listview -->
+    <color name="listview_name_color">#000</color>
+    <color name="listview_message_color">#A3A3A3</color>
+    <color name="listview_time_color">#A2A2A2</color>
+    <color name="listview_message_count_color">#FFF</color>
+    <color name="listview_message_count_background">#E74C3C</color>
+
+
 </resources>

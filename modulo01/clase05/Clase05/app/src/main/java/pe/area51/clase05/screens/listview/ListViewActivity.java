@@ -14,11 +14,7 @@ import pe.area51.clase05.screens.gridview.GridViewAdapter;
 
 public class ListViewActivity extends AppCompatActivity {
 
-
-
-    GridViewAdapter adapter;
     ListView people;
-
     Context context;
 
     @Override
@@ -29,20 +25,6 @@ public class ListViewActivity extends AppCompatActivity {
         context = this;
 
         people = (ListView) findViewById(R.id.people);
-
-
-        ArrayList<PersonModel> arreglo = new ArrayList<PersonModel>();
-        for (int i = 1; i < 30; i++) {
-            PersonModel pm = new PersonModel();
-            pm.setPhoto("http://segundoacosta.com/people/img_" + i + ".jpg");
-
-            arreglo.add(pm);
-        }
-
-
-        adapter = new GridViewAdapter(context, arreglo);
-        people.setAdapter(adapter);
-
 
     }
 

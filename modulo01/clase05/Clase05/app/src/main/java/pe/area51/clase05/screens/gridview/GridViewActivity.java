@@ -32,8 +32,8 @@ public class GridViewActivity extends AppCompatActivity {
         for (int i = 1; i < 30; i++) {
             PersonModel pm = new PersonModel();
 
-            pm.setName("");
-            pm.setTime("");
+            pm.setName("Nombre " + i);
+            pm.setTime("Hoy 9:30");
             pm.setPhoto("http://segundoacosta.com/people/img_" + i + ".jpg");
 
             arreglo.add(pm);

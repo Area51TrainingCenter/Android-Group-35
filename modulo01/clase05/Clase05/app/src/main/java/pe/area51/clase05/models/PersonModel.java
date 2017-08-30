@@ -9,6 +9,8 @@ public class PersonModel {
     private String name;
     private String photo;
     private String time;
+    private String message;
+    private int message_count;
     private int state;
 
     public String getName() {
@@ -41,5 +43,21 @@ public class PersonModel {
 
     public void setTime(String time) {
         this.time = time;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public int getMessage_count() {
+        return message_count;
+    }
+
+    public void setMessage_count(int message_count) {
+        this.message_count = message_count;
     }
 }
