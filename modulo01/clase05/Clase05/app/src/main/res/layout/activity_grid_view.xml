@@ -11,6 +11,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:columnWidth="100dp"
-        android:numColumns="auto_fit" />
+        android:horizontalSpacing="2dp"
+        android:listSelector="@null"
+        android:numColumns="auto_fit"
+        android:scrollingCache="false"
+        android:smoothScrollbar="true"
+        android:stretchMode="spacingWidthUniform"
+        android:verticalSpacing="2dp" />
 
 </LinearLayout>

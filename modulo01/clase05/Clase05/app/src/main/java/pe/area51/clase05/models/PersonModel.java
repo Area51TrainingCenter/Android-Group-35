@@ -8,6 +8,7 @@ public class PersonModel {
 
     private String name;
     private String photo;
+    private String time;
     private int state;
 
     public String getName() {
@@ -32,5 +33,13 @@ public class PersonModel {
 
     public void setState(int state) {
         this.state = state;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 }

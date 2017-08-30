@@ -8,8 +8,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -43,11 +46,21 @@ public class GridViewAdapter extends ArrayAdapter<PersonModel> {
                     .inflate(R.layout.row_person, parent, false);
 
             vh.photo = (SimpleDraweeView) view.findViewById(R.id.photo);
+            vh.name = (TextView) view.findViewById(R.id.name);
+            vh.time = (TextView) view.findViewById(R.id.time);
+
             view.setTag(vh);
         } else {
             vh = (ViewHolder) view.getTag();
         }
 
+        //Seteamos el nombre
+        vh.name.setText(getItem(position).getName());
+        //Seteamos el tiempo
+        vh.time.setText(getItem(position).getTime() );
+
+
+        //Mostramos la imagen
         HelperImageClase03 loader = new HelperImageClase03(context);
         loader.view = vh.photo;
         loader.url = getItem(position).getPhoto();
@@ -58,5 +71,6 @@ public class GridViewAdapter extends ArrayAdapter<PersonModel> {
 
     static class ViewHolder {
         SimpleDraweeView photo;
+        TextView name, time;
     }
 }
