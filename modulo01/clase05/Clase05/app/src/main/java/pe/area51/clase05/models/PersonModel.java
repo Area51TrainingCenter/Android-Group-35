@@ -14,6 +14,7 @@ public class PersonModel implements Serializable {
     private String message;
     private int message_count;
     private int state;
+    private int mobile;
 
     public String getName() {
         return name;
@@ -61,5 +62,13 @@ public class PersonModel implements Serializable {
 
     public void setMessage_count(int message_count) {
         this.message_count = message_count;
+    }
+
+    public int getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(int mobile) {
+        this.mobile = mobile;
     }
 }

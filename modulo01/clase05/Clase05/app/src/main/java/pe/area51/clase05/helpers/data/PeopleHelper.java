@@ -32,6 +32,7 @@ public class PeopleHelper {
             pm.setState(random.nextInt(1));
             pm.setTime("" + sdf.format(cal.getTime())); //Momento actual
             pm.setMessage_count(random.nextInt(30)); //Número aleatorio
+            pm.setMobile(random.nextInt(999999999));
 
             //agregamos el objeto al arreglo
             people.add(pm);

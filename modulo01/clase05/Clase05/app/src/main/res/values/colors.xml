@@ -23,5 +23,6 @@
     <color name="people_name">#FFFFFF</color>
     <color name="people_background">#FFFFFF</color>
     <color name="people_arrow">#F3F3F3</color>
+    <color name="people_subtitle">#858585</color>
 
 </resources>

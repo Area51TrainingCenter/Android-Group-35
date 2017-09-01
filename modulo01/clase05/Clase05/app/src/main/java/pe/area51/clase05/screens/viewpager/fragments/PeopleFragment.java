@@ -27,7 +27,7 @@ public class PeopleFragment extends Fragment {
     PersonModel pm;
 
     View view;
-    TextView name, time, description;
+    TextView name, time, description, username, mobile;
     SimpleDraweeView photo;
 
 
@@ -54,6 +54,8 @@ public class PeopleFragment extends Fragment {
         name = (TextView) view.findViewById(R.id.name);
         time = (TextView) view.findViewById(R.id.time);
         description = (TextView) view.findViewById(R.id.description);
+        username = (TextView) view.findViewById(R.id.username);
+        mobile = (TextView) view.findViewById(R.id.mobile);
         photo = (SimpleDraweeView) view.findViewById(R.id.photo);
 
         return view;
@@ -66,6 +68,8 @@ public class PeopleFragment extends Fragment {
         //Aquí va la logica
         name.setText(pm.getName());
         time.setText(pm.getTime());
+        username.setText(pm.getName());
+        mobile.setText("+51 " + pm.getMobile());
 
         HelperImageClase03 loader = new HelperImageClase03(context);
         loader.view = photo;
