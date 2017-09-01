@@ -9,6 +9,7 @@ import android.widget.GridView;
 import java.util.ArrayList;
 
 import pe.area51.clase05.R;
+import pe.area51.clase05.helpers.data.PeopleHelper;
 import pe.area51.clase05.models.PersonModel;
 
 public class GridViewActivity extends AppCompatActivity {
@@ -27,18 +28,12 @@ public class GridViewActivity extends AppCompatActivity {
 
         people = (GridView) findViewById(R.id.people);
 
+        /*
+        PeopleHelper ph = new PeopleHelper();
+        ph.getItem();
+        */
 
-        ArrayList<PersonModel> arreglo = new ArrayList<PersonModel>();
-        for (int i = 1; i < 30; i++) {
-            PersonModel pm = new PersonModel();
-
-            pm.setName("Nombre " + i);
-            pm.setTime("Hoy 9:30");
-            pm.setPhoto("http://segundoacosta.com/people/img_" + i + ".jpg");
-
-            arreglo.add(pm);
-        }
-
+        ArrayList<PersonModel> arreglo = PeopleHelper.getPeople();
 
         adapter = new GridViewAdapter(context, arreglo);
         people.setAdapter(adapter);
