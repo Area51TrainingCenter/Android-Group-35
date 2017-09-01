@@ -46,7 +46,7 @@ public class PeopleFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         view = inflater.inflate(R.layout.fragment_people, container, false);
-        name = (TextView) view.findViewById(R.id.name);
+        //name = (TextView) view.findViewById(R.id.name);
 
         return view;
     }
@@ -56,8 +56,7 @@ public class PeopleFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         //Aquí va la logica
-        name.setText(pm.getName());
-
+        //name.setText(pm.getName());
 
     }
 }
