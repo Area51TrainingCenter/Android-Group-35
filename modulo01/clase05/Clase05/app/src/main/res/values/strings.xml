@@ -11,5 +11,11 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <!-- Screen people -->
+    <string name="people_status">Status</string>
+    <string name="people_user_name">Username</string>
+    <string name="people_mobile">Mobile</string>
+    <string name="people_media">Media</string>
+    <string name="people_description">Es un hecho establecido hace demasiado tiempo que un lector se distraerá con el contenido del texto de un sitio mientras que mira su diseño.</string>
 
 </resources>

@@ -18,5 +18,7 @@
     <color name="listview_message_count_color">#FFF</color>
     <color name="listview_message_count_background">#E74C3C</color>
 
+    <!-- Screen people -->
+    <color name="people_title">#009F7E</color>
 
 </resources>
