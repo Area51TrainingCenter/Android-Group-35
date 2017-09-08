@@ -5,5 +5,5 @@ package pe.area51.socialapp.helpers.session;
  */
 
 public class SocialAppSession {
-    
+
 }
