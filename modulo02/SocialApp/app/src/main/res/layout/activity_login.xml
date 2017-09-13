@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewLogin"
             type="pe.area51.socialapp.screens.login.viewmodel.LoginViewModel" />
@@ -15,6 +16,29 @@
         android:orientation="vertical">
 
         <include layout="@layout/toolbar_title" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/btnlogin"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/app_name" />
+
+            <TextView
+                android:id="@+id/btnsignup"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/app_name" />
+
+        </LinearLayout>
 
         <android.support.v4.view.ViewPager
             android:id="@+id/pager"

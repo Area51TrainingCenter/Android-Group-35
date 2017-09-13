@@ -14,9 +14,10 @@ import pe.area51.socialapp.R;
  */
 public class LoginFragment extends Fragment {
 
-
     public LoginFragment() {
-        
+
+
+
     }
 
 
