@@ -30,8 +30,10 @@ public class LoginActivity extends SocialAppActivity {
     void initBindind() {
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login);
-        view = new LoginViewModel(context, binding);
+        view = new LoginViewModel(context, binding, getSupportFragmentManager());
         binding.setViewLogin(view);
+
+
 
         view.initView();
 

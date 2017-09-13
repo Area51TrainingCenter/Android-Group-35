@@ -17,11 +17,17 @@ public class LoginAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return null;
+        Fragment fragment = null;
+        if (position == 0) {
+            fragment = new LoginFragment();
+        } else {
+            fragment = new SignUpFragment();
+        }
+        return fragment;
     }
 
     @Override
     public int getCount() {
-        return 0;
+        return 2;
     }
 }
