@@ -11,6 +11,8 @@
     <!-- Screen Login  -->
     <color name="login_title_normal">#414141</color>
     <color name="login_title_hover">#2E91F4</color>
+    <color name="login_edittext_border">#E5E4E5</color>
+    <color name="login_button_background">#1981F7</color>
 
 
 

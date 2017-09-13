@@ -3,8 +3,8 @@
     android:shape="rectangle">
 
     <stroke
-        android:width="2dp"
-        android:color="#CDCDCD" />
+        android:width="1dp"
+        android:color="@color/login_edittext_border" />
 
     <corners android:radius="20dp" />
 
