@@ -1,4 +1,4 @@
-package pe.area51.socialapp.screens.home.view;
+package pe.area51.socialapp.screens.feed.view;
 
 
 import android.os.Bundle;
@@ -6,7 +6,7 @@ import android.os.Bundle;
 import pe.area51.socialapp.R;
 import pe.area51.socialapp.widgets.activity.SocialAppActivity;
 
-public class HomeActivity extends SocialAppActivity {
+public class FeedActivity extends SocialAppActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

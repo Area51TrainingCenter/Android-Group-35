@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import pe.area51.socialapp.R;
-import pe.area51.socialapp.screens.home.view.HomeActivity;
+import pe.area51.socialapp.screens.feed.view.FeedActivity;
 import pe.area51.socialapp.screens.login.view.LoginActivity;
 import pe.area51.socialapp.widgets.activity.SocialAppActivity;
 
@@ -30,7 +30,7 @@ public class SplashActivity extends SocialAppActivity {
 
     void toHome() {
         Intent intent = new Intent(SplashActivity.this,
-                HomeActivity.class);
+                FeedActivity.class);
         startActivity(intent);
     }
 

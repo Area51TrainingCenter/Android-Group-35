@@ -1,0 +1,8 @@
+package pe.area51.socialapp.screens.feed.viewmodel;
+
+/**
+ * Created by segundo on 14/09/17.
+ */
+
+public class FeedViewModel {
+}

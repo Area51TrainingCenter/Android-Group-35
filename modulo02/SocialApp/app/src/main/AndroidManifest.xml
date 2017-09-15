@@ -10,7 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/SocialAppTheme">
-        <activity android:name=".screens.home.view.HomeActivity" />
+        <activity android:name=".screens.feed.view.FeedActivity" />
         <activity android:name=".screens.splash.view.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
