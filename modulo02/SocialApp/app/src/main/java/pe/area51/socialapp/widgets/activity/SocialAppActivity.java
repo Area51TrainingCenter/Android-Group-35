@@ -27,6 +27,5 @@ public class SocialAppActivity extends AppCompatActivity {
             this.title.setText(title);
         }
     }
-
-
+    
 }

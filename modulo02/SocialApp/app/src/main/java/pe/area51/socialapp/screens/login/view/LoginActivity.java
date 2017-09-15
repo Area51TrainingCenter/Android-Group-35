@@ -34,7 +34,6 @@ public class LoginActivity extends SocialAppActivity {
         binding.setViewLogin(view);
 
 
-
         view.initView();
 
     }
