@@ -20,6 +20,7 @@
     <string name="signup_button_register">Register</string>
 
     <!-- Screen Feed -->
+    <string name="feed_title">Feed</string>
     <string name="feed_number">0</string>
 
 </resources>

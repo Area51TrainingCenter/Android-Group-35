@@ -22,7 +22,7 @@ public class SplashActivity extends SocialAppActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                toLogin();
+                toHome();
             }
         }, 2000);
 
