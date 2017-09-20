@@ -28,5 +28,7 @@
     <string name="followers_following">Following</string>
     <string name="followers_follow">Follow</string>
 
+    <!-- Permissions -->
+    <string name="permissions_storage">AppSocial necesita permisos para funcionar</string>
 
 </resources>
