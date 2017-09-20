@@ -23,4 +23,10 @@
     <string name="feed_title">Feed</string>
     <string name="feed_number">0</string>
 
+    <!-- Screen Followers -->
+    <string name="followers_title">Followers</string>
+    <string name="followers_following">Following</string>
+    <string name="followers_follow">Follow</string>
+
+
 </resources>

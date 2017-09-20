@@ -11,7 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/SocialAppTheme">
         <activity android:name=".screens.feed.view.FeedActivity" />
-        <activity android:name=".screens.splash.view.SplashActivity">
+        <activity
+            android:name=".screens.splash.view.SplashActivity"
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
