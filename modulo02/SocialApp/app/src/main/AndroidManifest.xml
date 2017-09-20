@@ -20,7 +20,8 @@
         </activity>
         <activity
             android:name=".screens.login.view.LoginActivity"
-            android:windowSoftInputMode="stateAlwaysHidden"></activity>
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity android:name=".screens.followers.view.FollowersActivity"></activity>
     </application>
 
 </manifest>
