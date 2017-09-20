@@ -14,13 +14,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="20dp">
+        android:padding="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/item_followers_background"
             android:orientation="horizontal"
-            android:padding="6dp">
+            android:padding="16dp">
 
 
             <com.facebook.drawee.view.SimpleDraweeView
@@ -70,7 +71,8 @@
                     android:background="@drawable/item_following_background"
                     android:inputType="textCapCharacters"
                     android:text="@string/followers_following"
-                    android:textColor="@color/followers_following_text" />
+                    android:textColor="@color/followers_following_text"
+                    android:visibility="gone" />
 
 
                 <Button
@@ -80,7 +82,8 @@
                     android:background="@drawable/item_follow_background"
                     android:inputType="textCapCharacters"
                     android:text="@string/followers_follow"
-                    android:textColor="@color/followers_follow_text" />
+                    android:textColor="@color/followers_follow_text"
+                    android:visibility="gone" />
 
             </LinearLayout>
 

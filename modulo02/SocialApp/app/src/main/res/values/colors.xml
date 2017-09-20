@@ -21,7 +21,6 @@
     <color name="feed_text_comments">#BCBCBC</color>
     <color name="feed_text_favourites">#BCBCBC</color>
 
-
     <!-- Screen Followers -->
     <color name="followers_follow_text">#9D9D9D</color>
     <color name="followers_border_color">#E3E3E3</color>
