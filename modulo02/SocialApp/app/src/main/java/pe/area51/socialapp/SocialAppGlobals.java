@@ -32,7 +32,7 @@ public class SocialAppGlobals {
     // Response
     //================================================================
     public static String api_res_state = "state";
-    public static String api_res_state_ok = "ok";
+    public static String api_res_state_ok = "true";
     public static String api_res_message = "message";
 
     public static String api_res_data = "data";
