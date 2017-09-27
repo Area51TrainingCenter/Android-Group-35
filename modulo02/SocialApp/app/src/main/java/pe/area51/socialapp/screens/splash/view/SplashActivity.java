@@ -14,7 +14,7 @@ import java.util.List;
 import pe.area51.socialapp.R;
 import pe.area51.socialapp.helpers.session.SocialAppSession;
 import pe.area51.socialapp.screens.feed.view.FeedActivity;
-import pe.area51.socialapp.screens.followers.view.FollowersActivity;
+
 import pe.area51.socialapp.screens.login.view.LoginActivity;
 import pe.area51.socialapp.widgets.activity.SocialAppActivity;
 import pub.devrel.easypermissions.AfterPermissionGranted;
@@ -56,7 +56,7 @@ public class SplashActivity extends SocialAppActivity
 
     void toHome() {
         Intent intent = new Intent(SplashActivity.this,
-                FollowersActivity.class);
+                FeedActivity.class);
         startActivity(intent);
     }
 
@@ -77,6 +77,7 @@ public class SplashActivity extends SocialAppActivity
         if (EasyPermissions.hasPermissions(this, perms)) {
             Log.d("SocialApp", " Paso");
 
+
             if (session.isLogin()) {
                 Log.d("SocialApp", " Logueado");
                 toHome();
@@ -88,7 +89,15 @@ public class SplashActivity extends SocialAppActivity
 
         } else {
             Log.d("SocialApp", " No Paso");
-            toLogin();
+
+
+            if (session.isLogin()) {
+                Log.d("SocialApp", " Logueado");
+                toHome();
+            } else {
+                Log.d("SocialApp", " No existe sesion");
+                toLogin();
+            }
 
             EasyPermissions.requestPermissions(this,
                     getString(R.string.permissions_storage),
