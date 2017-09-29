@@ -1,7 +1,9 @@
 package pe.area51.socialapp.screens.login.view;
 
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -26,6 +28,7 @@ import pe.area51.socialapp.SocialAppGlobals;
 import pe.area51.socialapp.databinding.FragmentSignUpBinding;
 import pe.area51.socialapp.helpers.log.SocialAppLog;
 import pe.area51.socialapp.helpers.session.SocialAppSession;
+import pe.area51.socialapp.screens.feed.view.FeedActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -36,6 +39,7 @@ public class SignUpFragment extends Fragment {
     FragmentSignUpBinding binding;
     SocialAppSession sesion;
     Context context;
+    Activity activity;
 
     int error_code = 0;
 
@@ -48,6 +52,7 @@ public class SignUpFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         context = getActivity();
+        activity = getActivity();
         sesion = new SocialAppSession(context);
 
     }
@@ -72,72 +77,8 @@ public class SignUpFragment extends Fragment {
             public void onClick(View view) {
 
                 if (validate()) {
-                    //Campos validos, se procede al registro
-                    SocialAppLog.getMessage("Registro válido");
-                    JSONObject parameters = new JSONObject();
 
-                    try {
-
-                        parameters.put(SocialAppGlobals.api_par_name,
-                                binding.txtname.getText().toString());
-
-                        parameters.put(SocialAppGlobals.api_par_lastname,
-                                binding.txtlastname.getText().toString());
-
-                        parameters.put(SocialAppGlobals.api_par_email,
-                                binding.txtemail.getText().toString());
-                        parameters.put(SocialAppGlobals.api_par_password,
-                                binding.txtpassword.getText().toString());
-
-
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                    SocialAppLog.getMessage("url: " + SocialAppGlobals.api_module_user_register);
-                    SocialAppLog.getMessage("parameters: " + parameters);
-
-                    JsonObjectRequest jor =
-                            new JsonObjectRequest(
-                                    Request.Method.POST,
-                                    SocialAppGlobals.api_module_user_register,
-                                    parameters,
-                                    new Response.Listener<JSONObject>() {
-                                        @Override
-                                        public void onResponse(JSONObject response) {
-
-                                            SocialAppLog.getMessage("response: " + response);
-                                            //Primero validamos el state
-
-                                            try {
-
-                                                if (response.has(SocialAppGlobals.api_res_state)) {
-                                                    if (response.getString(SocialAppGlobals.api_res_state)
-                                                            .equals(SocialAppGlobals.api_res_state_ok)) {
-
-                                                        //Guardamos la sesión
-                                                        //sesion.
-
-
-                                                    }
-
-                                                }
-                                            } catch (JSONException e) {
-                                                e.printStackTrace();
-                                            }
-
-
-                                        }
-                                    },
-                                    new Response.ErrorListener() {
-                                        @Override
-                                        public void onErrorResponse(VolleyError error) {
-                                            SocialAppLog.getMessage("error: " + error.getMessage());
-                                        }
-                                    }
-                            );
-
-                    SocialAppApplication.getInstance().addToRequestQueue(jor);
-
+                    toRegister();
 
                 } else {
                     //Mostramos mensaje de error
@@ -172,6 +113,117 @@ public class SignUpFragment extends Fragment {
 
 
     }
+
+
+    public void toRegister() {
+
+        //Mostramos el loader al usuario
+        binding.loaders.setVisibility(View.VISIBLE);
+
+
+        //Campos validos, se procede al registro
+        SocialAppLog.getMessage("Registro válido");
+        JSONObject parameters = new JSONObject();
+
+        try {
+
+            parameters.put(SocialAppGlobals.api_par_name,
+                    binding.txtname.getText().toString());
+
+            parameters.put(SocialAppGlobals.api_par_lastname,
+                    binding.txtlastname.getText().toString());
+
+            parameters.put(SocialAppGlobals.api_par_email,
+                    binding.txtemail.getText().toString());
+            parameters.put(SocialAppGlobals.api_par_password,
+                    binding.txtpassword.getText().toString());
+
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        SocialAppLog.getMessage("url: " + SocialAppGlobals.api_module_user_register);
+        SocialAppLog.getMessage("parameters: " + parameters);
+
+        JsonObjectRequest jor =
+                new JsonObjectRequest(
+                        Request.Method.POST,
+                        SocialAppGlobals.api_module_user_register,
+                        parameters,
+                        new Response.Listener<JSONObject>() {
+                            @Override
+                            public void onResponse(JSONObject response) {
+
+                                SocialAppLog.getMessage("response: " + response);
+                                //Primero validamos el state
+
+                                try {
+
+                                    if (response.has(SocialAppGlobals.api_res_state)) {
+                                        if (response.getString(SocialAppGlobals.api_res_state)
+                                                .equals(SocialAppGlobals.api_res_state_ok)) {
+
+                                            if (response
+                                                    .has(SocialAppGlobals.api_res_data)) {
+
+                                                JSONObject data =
+                                                        response.getJSONObject(SocialAppGlobals.api_res_data);
+
+                                                //Guardamos la sesión
+                                                if (data.has(SocialAppGlobals.api_res_name)) {
+                                                    sesion.setName(data.getString(SocialAppGlobals.api_res_name));
+                                                }
+                                                if (data.has(SocialAppGlobals.api_res_lastname)) {
+                                                    sesion.setLastname(data.getString(SocialAppGlobals.api_res_lastname));
+                                                }
+                                                if (data.has(SocialAppGlobals.api_res_email)) {
+                                                    sesion.setEmail(data.getString(SocialAppGlobals.api_res_email));
+                                                }
+                                                if (data.has(SocialAppGlobals.api_res_users_id)) {
+                                                    sesion.setId(data.getString(SocialAppGlobals.api_res_users_id));
+                                                }
+
+                                                sesion.saveSession();
+
+
+                                                binding.loaders.setVisibility(View.GONE);
+
+                                                Intent intent = new Intent(activity, FeedActivity.class);
+                                                activity.startActivity(intent);
+
+                                                activity.finish();
+
+                                            }
+
+                                        }
+
+                                    }
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+
+
+                            }
+                        },
+                        new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                SocialAppLog.getMessage("error: " + error.getMessage());
+
+                                binding.loaders.setVisibility(View.GONE);
+                                Toast.makeText(context, "Error de servidor", Toast.LENGTH_SHORT)
+                                        .show();
+
+                            }
+                        }
+                );
+
+        SocialAppApplication.getInstance().addToRequestQueue(jor);
+
+
+    }
+
 
     public boolean validate() {
 
