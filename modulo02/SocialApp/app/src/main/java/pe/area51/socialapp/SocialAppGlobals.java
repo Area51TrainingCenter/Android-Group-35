@@ -10,13 +10,17 @@ public class SocialAppGlobals {
     public static String api_version = "v1/";
 
     public static String api_controller_user = "user/";
-    public static String api_controller_feed = "feed/";
+    public static String api_controller_feed = "feed";
 
     public static String api_module_user_login = api_domain + api_version +
             api_controller_user + "login";
 
     public static String api_module_user_register = api_domain + api_version +
             api_controller_user + "register";
+
+
+    public static String api_module_feed = api_domain + api_version +
+            api_controller_feed;
 
 
     //================================================================
@@ -40,6 +44,12 @@ public class SocialAppGlobals {
     public static String api_res_name = "name";
     public static String api_res_lastname = "lastname";
     public static String api_res_users_id = "id";
+
+
+    public static String api_res_title = "title";
+    public static String api_res_images = "images";
+    public static String api_res_comments = "comments";
+    public static String api_res_favorites = "favorites";
 
 
 }

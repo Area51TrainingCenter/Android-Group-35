@@ -180,7 +180,7 @@ public class LoginFragment extends Fragment {
                                                 }
 
                                                 session.saveSession();
-                                                
+
                                                 loaders.setVisibility(View.GONE);
 
                                                 Intent intent = new Intent(activity, FeedActivity.class);
