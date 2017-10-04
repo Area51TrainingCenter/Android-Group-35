@@ -14,6 +14,7 @@ import java.util.ArrayList;
 
 import pe.area51.socialapp.R;
 import pe.area51.socialapp.databinding.ItemFeedBinding;
+import pe.area51.socialapp.helpers.frescolib.SocialAppImage;
 import pe.area51.socialapp.models.FeedModel;
 
 /**
@@ -40,8 +41,20 @@ public class FeedAdapter extends ArrayAdapter<FeedModel> {
         ItemFeedBinding binding =
                 DataBindingUtil.inflate(inflater, R.layout.item_feed, parent, false);
 
-        //view = binding.getRoot();
-        
+        FeedModel feed = getItem(position);
+
+
+        binding.title.setText(feed.getTitle());
+        binding.comments.setText("" + feed.getComments());
+        binding.favourites.setText("" + feed.getFavourites());
+
+        //Para la imagen
+        SocialAppImage loader = new SocialAppImage(context);
+        loader.url = feed.getPhoto();
+        loader.view = binding.photo;
+        loader.show();
+
+
         return binding.getRoot();
     }
 }
