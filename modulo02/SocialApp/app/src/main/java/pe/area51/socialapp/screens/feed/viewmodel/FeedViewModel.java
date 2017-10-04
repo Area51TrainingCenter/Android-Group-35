@@ -1,6 +1,7 @@
 package pe.area51.socialapp.screens.feed.viewmodel;
 
 import android.content.Context;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.View;
 
 import com.android.volley.Request;
@@ -27,7 +28,7 @@ import pe.area51.socialapp.screens.feed.view.FeedAdapter;
  * Created by segundo on 14/09/17.
  */
 
-public class FeedViewModel {
+public class FeedViewModel implements SwipeRefreshLayout.OnRefreshListener {
 
     //Para manejar la sesion
     SocialAppSession session;
@@ -61,6 +62,10 @@ public class FeedViewModel {
         binding.list.setAdapter(adapter);
 
         getFeed();
+
+
+        binding.refresh.setOnRefreshListener(this);
+
 
     }
 
@@ -143,6 +148,8 @@ public class FeedViewModel {
                                 //Mensaje toast
                             }
 
+                            binding.refresh.setRefreshing(false);
+
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -163,4 +170,10 @@ public class FeedViewModel {
     }
 
 
+    @Override
+    public void onRefresh() {
+
+        getFeed();
+
+    }
 }
