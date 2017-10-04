@@ -5,7 +5,7 @@
 
         <variable
             name="viewItem"
-            type="pe.area51.socialapp.models.FeedModel" />
+            type="pe.area51.socialapp.models.app.FeedModel" />
     </data>
 
     <LinearLayout

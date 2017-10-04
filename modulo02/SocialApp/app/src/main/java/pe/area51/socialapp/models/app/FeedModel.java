@@ -1,10 +1,12 @@
-package pe.area51.socialapp.models;
+package pe.area51.socialapp.models.app;
+
+import io.realm.RealmObject;
 
 /**
  * Created by segundo on 14/09/17.
  */
 
-public class FeedModel {
+public class FeedModel extends RealmObject {
 
     private String id;
     private String photo;

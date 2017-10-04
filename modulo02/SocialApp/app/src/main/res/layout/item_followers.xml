@@ -7,7 +7,7 @@
 
         <variable
             name="viewItem"
-            type="pe.area51.socialapp.models.FollowerModel" />
+            type="pe.area51.socialapp.models.app.FollowerModel" />
     </data>
 
     <LinearLayout

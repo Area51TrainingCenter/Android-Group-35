@@ -8,7 +8,6 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -16,12 +15,13 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import io.realm.Realm;
 import pe.area51.socialapp.SocialAppApplication;
 import pe.area51.socialapp.SocialAppGlobals;
 import pe.area51.socialapp.databinding.ActivityFeedBinding;
 import pe.area51.socialapp.helpers.log.SocialAppLog;
 import pe.area51.socialapp.helpers.session.SocialAppSession;
-import pe.area51.socialapp.models.FeedModel;
+import pe.area51.socialapp.models.app.FeedModel;
 import pe.area51.socialapp.screens.feed.view.FeedAdapter;
 
 /**
@@ -39,9 +39,14 @@ public class FeedViewModel implements SwipeRefreshLayout.OnRefreshListener {
     FeedAdapter adapter;
     ArrayList<FeedModel> feed;
 
-    public FeedViewModel(Context context, ActivityFeedBinding binding) {
+    Realm realm;
+
+    public FeedViewModel(Context context, ActivityFeedBinding binding,
+                         Realm realm) {
+
         this.context = context;
         this.binding = binding;
+        this.realm = realm;
 
         session = new SocialAppSession(context);
 
@@ -134,10 +139,24 @@ public class FeedViewModel implements SwipeRefreshLayout.OnRefreshListener {
                                             }
 
                                             feed.add(fm);
-                                            adapter.notifyDataSetChanged();
-                                            binding.loaders.setVisibility(View.GONE);
 
-                                        }
+                                            //Guardar en Realm
+                                            if (!realm.isClosed()) {
+
+                                                FeedModel fmReal = realm.createObject(FeedModel.class);
+                                                fmReal.setTitle(fm.getTitle());
+                                                fmReal.setPhoto(fm.getPhoto());
+                                                fmReal.setComments(fm.getComments());
+                                                fmReal.setFavourites(fm.getFavourites());
+                                                realm.commitTransaction();
+
+                                            }
+
+
+                                        }//fin del for
+
+                                        adapter.notifyDataSetChanged();
+                                        binding.loaders.setVisibility(View.GONE);
                                     }
 
                                 }

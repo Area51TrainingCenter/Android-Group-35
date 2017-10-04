@@ -5,6 +5,7 @@ import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 
+import io.realm.Realm;
 import pe.area51.socialapp.R;
 
 import pe.area51.socialapp.databinding.ActivityFeedBinding;
@@ -17,11 +18,14 @@ public class FeedActivity extends SocialAppActivity {
     FeedViewModel view;
     Context context;
 
+    Realm realm;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         context = this;
+        realm = Realm.getDefaultInstance();
         initBinding();
 
         initToolbar();
@@ -32,10 +36,19 @@ public class FeedActivity extends SocialAppActivity {
     void initBinding() {
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_feed);
-        view = new FeedViewModel(context, binding);
+        view = new FeedViewModel(context, binding, realm);
         view.initView();
 
     }
 
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        if (realm != null) {
+            realm.close();
+        }
+
+    }
 }

@@ -5,7 +5,7 @@ import android.content.Context;
 import java.util.ArrayList;
 
 import pe.area51.socialapp.databinding.ActivityFollowersBinding;
-import pe.area51.socialapp.models.FollowerModel;
+import pe.area51.socialapp.models.app.FollowerModel;
 import pe.area51.socialapp.screens.followers.view.FollowersAdapter;
 
 /**

@@ -8,6 +8,10 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 import com.facebook.drawee.backends.pipeline.Fresco;
 
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
+
+
 /**
  * Created by segundo on 7/09/17.
  */
@@ -30,8 +34,17 @@ public class SocialAppApplication extends Application {
         volleyInstance = this;
 
 
-    }
+        //Realm
+        Realm.init(this);
+        RealmConfiguration configuration = new RealmConfiguration.Builder()
+                .name("real.socialapp")
+                .schemaVersion(1)
+                .deleteRealmIfMigrationNeeded()
+                .build();
 
+        Realm.getInstance(configuration);
+
+    }
 
 
     //============================================================================================================================================================

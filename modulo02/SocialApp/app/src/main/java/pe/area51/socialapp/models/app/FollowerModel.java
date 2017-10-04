@@ -1,10 +1,14 @@
-package pe.area51.socialapp.models;
+package pe.area51.socialapp.models.app;
+
+import java.io.Serializable;
+
+import io.realm.RealmObject;
 
 /**
  * Created by segundo on 19/09/17.
  */
 
-public class FollowerModel {
+public class FollowerModel extends RealmObject{
 
     private String photo;
     private String name;
