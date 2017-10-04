@@ -22,6 +22,7 @@
     <!-- Screen Feed -->
     <string name="feed_title">Feed</string>
     <string name="feed_number">0</string>
+    <string name="feed_offline">Estás navegando sin conexión a internet</string>
 
     <!-- Screen Followers -->
     <string name="followers_title">Followers</string>

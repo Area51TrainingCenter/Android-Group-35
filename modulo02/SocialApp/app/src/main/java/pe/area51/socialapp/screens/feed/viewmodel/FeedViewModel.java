@@ -16,10 +16,13 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 import io.realm.Realm;
+import io.realm.RealmQuery;
+import io.realm.RealmResults;
 import pe.area51.socialapp.SocialAppApplication;
 import pe.area51.socialapp.SocialAppGlobals;
 import pe.area51.socialapp.databinding.ActivityFeedBinding;
 import pe.area51.socialapp.helpers.log.SocialAppLog;
+import pe.area51.socialapp.helpers.network.SocialAppNetwork;
 import pe.area51.socialapp.helpers.session.SocialAppSession;
 import pe.area51.socialapp.models.app.FeedModel;
 import pe.area51.socialapp.screens.feed.view.FeedAdapter;
@@ -40,6 +43,7 @@ public class FeedViewModel implements SwipeRefreshLayout.OnRefreshListener {
     ArrayList<FeedModel> feed;
 
     Realm realm;
+    SocialAppNetwork network;
 
     public FeedViewModel(Context context, ActivityFeedBinding binding,
                          Realm realm) {
@@ -48,6 +52,7 @@ public class FeedViewModel implements SwipeRefreshLayout.OnRefreshListener {
         this.binding = binding;
         this.realm = realm;
 
+        network = new SocialAppNetwork(context);
         session = new SocialAppSession(context);
 
     }
@@ -66,18 +71,59 @@ public class FeedViewModel implements SwipeRefreshLayout.OnRefreshListener {
         adapter = new FeedAdapter(context, feed);
         binding.list.setAdapter(adapter);
 
-        getFeed();
-
+        if (network.getNetwork()) {
+            SocialAppLog.getMessage("Hay conexión de Red");
+            getFeed();
+        } else {
+            SocialAppLog.getMessage("No Hay conexión de Red");
+            getFeedOffline();
+        }
 
         binding.refresh.setOnRefreshListener(this);
 
 
     }
 
+    public void getFeedOffline() {
+
+        //Mostramos el cargador
+        binding.loaders.setVisibility(View.VISIBLE);
+        binding.network.setVisibility(View.VISIBLE);
+
+        RealmResults<FeedModel> results = realm.where(FeedModel.class)
+                //.equalTo("comments", 58)
+                .findAll();
+
+        SocialAppLog.getMessage("results: " + results);
+
+        for (FeedModel item : realm.where(FeedModel.class)
+                .findAll()) {
+            SocialAppLog.getMessage("results: " + item.getTitle());
+            SocialAppLog.getMessage("results: " + item.getComments());
+
+            FeedModel fm = new FeedModel();
+            fm.setTitle(item.getTitle());
+            fm.setPhoto(item.getPhoto());
+            fm.setComments(item.getComments());
+            fm.setFavourites(item.getFavourites());
+            feed.add(fm);
+        }
+
+        adapter.notifyDataSetChanged();
+        binding.loaders.setVisibility(View.GONE);
+        binding.refresh.setRefreshing(false);
+
+
+    }
+
+
     public void getFeed() {
 
         //Mostramos el cargador
         binding.loaders.setVisibility(View.VISIBLE);
+
+        //Borramos los registros de la caché local
+        realm.delete(FeedModel.class);
 
         String url = SocialAppGlobals.api_module_feed;
 
@@ -143,11 +189,14 @@ public class FeedViewModel implements SwipeRefreshLayout.OnRefreshListener {
                                             //Guardar en Realm
                                             if (!realm.isClosed()) {
 
+                                                realm.beginTransaction();
+
                                                 FeedModel fmReal = realm.createObject(FeedModel.class);
                                                 fmReal.setTitle(fm.getTitle());
                                                 fmReal.setPhoto(fm.getPhoto());
                                                 fmReal.setComments(fm.getComments());
                                                 fmReal.setFavourites(fm.getFavourites());
+
                                                 realm.commitTransaction();
 
                                             }
@@ -192,7 +241,11 @@ public class FeedViewModel implements SwipeRefreshLayout.OnRefreshListener {
     @Override
     public void onRefresh() {
 
-        getFeed();
+        if (network.getNetwork()) {
+            getFeed();
+        } else {
+            getFeedOffline();
+        }
 
     }
 }
