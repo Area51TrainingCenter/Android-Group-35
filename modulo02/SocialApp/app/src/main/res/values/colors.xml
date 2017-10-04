@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#FFFFFF</color>
+    <color name="colorPrimaryDark">#217DD7</color>
+    <color name="colorAccent">#217DD7</color>
+
+    <color name="windowBackground">#FFFFFF</color>
+    <color name="textColorPrimary">#4A4A4A</color>
+
+    <!-- Screen Login  -->
+    <color name="login_title_normal">#414141</color>
+    <color name="login_title_hover">#2E91F4</color>
+    <color name="login_edittext_border">#E5E4E5</color>
+    <color name="login_button_background">#1981F7</color>
+
+
+    <!-- Screen Feed -->
+    <color name="feed_title_color">#414141</color>
+    <color name="feed_line_color">#E3E3E3</color>
+    <color name="feed_text_comments">#BCBCBC</color>
+    <color name="feed_text_favourites">#BCBCBC</color>
+
+    <!-- Screen Followers -->
+    <color name="followers_follow_text">#9D9D9D</color>
+    <color name="followers_border_color">#E3E3E3</color>
+    <color name="followers_following_text">#FFFFFF</color>
+    <color name="followers_following_background">#2E91F4</color>
+    <color name="followers_follow_background">#FFFFFF</color>
+
+
+</resources>
