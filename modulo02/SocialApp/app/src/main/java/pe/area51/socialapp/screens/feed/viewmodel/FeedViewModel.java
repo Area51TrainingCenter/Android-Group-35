@@ -123,7 +123,15 @@ public class FeedViewModel implements SwipeRefreshLayout.OnRefreshListener {
         binding.loaders.setVisibility(View.VISIBLE);
 
         //Borramos los registros de la caché local
-        realm.delete(FeedModel.class);
+        realm.executeTransaction(new Realm.Transaction() {
+            @Override
+            public void execute(Realm realm) {
+
+                realm.delete(FeedModel.class);
+
+            }
+        });
+
 
         String url = SocialAppGlobals.api_module_feed;
 

@@ -30,6 +30,9 @@
             android:name=".screens.login.view.LoginActivity"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity android:name=".screens.followers.view.FollowersActivity"></activity>
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="f1a57da980fcc2cebacfa01c4872f50e4ce429a5" />
     </application>
 
 </manifest>
