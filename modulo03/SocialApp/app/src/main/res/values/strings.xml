@@ -32,4 +32,7 @@
     <!-- Permissions -->
     <string name="permissions_storage">AppSocial necesita permisos para funcionar</string>
 
+    <!-- Facebook -->
+    <string name="facebook_app_id">155739698354115</string>
+
 </resources>

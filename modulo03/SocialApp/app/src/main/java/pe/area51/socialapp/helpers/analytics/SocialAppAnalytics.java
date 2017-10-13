@@ -23,9 +23,6 @@ public class SocialAppAnalytics {
         Tracker tracker = app.getDefaultTracker();
         tracker.setScreenName(screen);
 
-        //tracker.set("&uid", sesion.getAg_user_id());
-        //tracker.set("cd1", sesion.getUnique_id());
-
         tracker.send(new HitBuilders
                 .ScreenViewBuilder()
                 .build());

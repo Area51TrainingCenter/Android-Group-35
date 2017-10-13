@@ -16,6 +16,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/SocialAppTheme">
+        <!-- Meta-data -->
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+        <!-- Activitys -->
         <activity android:name=".screens.feed.view.FeedActivity" />
         <activity
             android:name=".screens.splash.view.SplashActivity"
@@ -30,6 +37,7 @@
             android:name=".screens.login.view.LoginActivity"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity android:name=".screens.followers.view.FollowersActivity"></activity>
+
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="f1a57da980fcc2cebacfa01c4872f50e4ce429a5" />
