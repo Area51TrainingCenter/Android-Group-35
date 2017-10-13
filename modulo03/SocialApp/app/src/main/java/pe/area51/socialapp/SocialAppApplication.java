@@ -8,6 +8,8 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 import com.crashlytics.android.Crashlytics;
 import com.facebook.drawee.backends.pipeline.Fresco;
+import com.google.android.gms.analytics.GoogleAnalytics;
+import com.google.android.gms.analytics.Tracker;
 
 import io.fabric.sdk.android.Fabric;
 import io.realm.Realm;
@@ -24,6 +26,10 @@ public class SocialAppApplication extends Application {
     private RequestQueue mRequestQueue;
 
     public static final String TAG = SocialAppApplication.class.getSimpleName();
+    
+    static GoogleAnalytics googleAnalytics;
+    public Tracker tracker;
+
 
     @Override
     public void onCreate() {
@@ -84,5 +90,25 @@ public class SocialAppApplication extends Application {
         }
     }
 
+
+
+    //============================================================================================================================================================
+    // ANALYTICS
+    //============================================================================================================================================================
+
+
+    //============================================================================================================================================================
+    // ANALYTICS
+    //============================================================================================================================================================
+
+
+    synchronized public Tracker getDefaultTracker() {
+        if (tracker == null) {
+            GoogleAnalytics analytics = GoogleAnalytics.getInstance(this);
+            // To enable debug logging use: adb shell setprop log.tag.GAv4 DEBUG
+            tracker = analytics.newTracker(R.xml.global_tracker);
+        }
+        return tracker;
+    }
 
 }
