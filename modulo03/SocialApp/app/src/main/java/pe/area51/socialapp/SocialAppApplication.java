@@ -26,7 +26,7 @@ public class SocialAppApplication extends Application {
     private RequestQueue mRequestQueue;
 
     public static final String TAG = SocialAppApplication.class.getSimpleName();
-    
+
     static GoogleAnalytics googleAnalytics;
     public Tracker tracker;
 
@@ -91,16 +91,9 @@ public class SocialAppApplication extends Application {
     }
 
 
-
     //============================================================================================================================================================
     // ANALYTICS
     //============================================================================================================================================================
-
-
-    //============================================================================================================================================================
-    // ANALYTICS
-    //============================================================================================================================================================
-
 
     synchronized public Tracker getDefaultTracker() {
         if (tracker == null) {
