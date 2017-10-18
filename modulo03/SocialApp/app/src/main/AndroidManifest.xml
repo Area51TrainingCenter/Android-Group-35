@@ -7,7 +7,6 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
-
     <application
         android:name=".SocialAppApplication"
         android:allowBackup="true"
@@ -16,19 +15,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/SocialAppTheme">
+
         <!-- Meta-data -->
+
 
         <!-- IdFacebook -->
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
-        <!-- Set custom default icon. This is used when no icon is set for incoming notification messages.
-     See README(https://goo.gl/l4GJaQ) for more. -->
+        <!--
+     Set custom default icon. This is used when no icon is set for incoming notification messages.
+     See README(https://goo.gl/l4GJaQ) for more.
+        -->
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
             android:resource="@mipmap/ic_launcher" />
-        <!-- Set color used with incoming notification messages. This is used when no color is set for the incoming
-             notification message. See README(https://goo.gl/6BKBk7) for more. -->
+        <!--
+             Set color used with incoming notification messages. This is used when no color is set for the incoming
+             notification message. See README(https://goo.gl/6BKBk7) for more.
+        -->
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/colorAccent" />
@@ -39,7 +44,6 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-
         <service android:name=".helpers.firebase.notifications.SocialAppInstanceIDService">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
@@ -60,11 +64,16 @@
         <activity
             android:name=".screens.login.view.LoginActivity"
             android:windowSoftInputMode="stateAlwaysHidden" />
-        <activity android:name=".screens.followers.view.FollowersActivity"></activity>
+        <activity android:name=".screens.followers.view.FollowersActivity" />
 
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="f1a57da980fcc2cebacfa01c4872f50e4ce429a5" />
+
+        <activity android:name=".screens.audio.view.AudioActivity" />
+        <activity android:name=".screens.maps.view.SocialMapsActivity" />
+        <activity android:name=".screens.video.view.VideoActivity" />
+        <activity android:name=".screens.youtube.view.SocialYoutubeActivity"></activity>
     </application>
 
 </manifest>

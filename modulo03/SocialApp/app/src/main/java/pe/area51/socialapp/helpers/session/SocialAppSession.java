@@ -20,6 +20,49 @@ public class SocialAppSession {
     String user_email_pref = "user_email_pref";
     String user_id_pref = "user_id_pref";
 
+    String facebook_token = "facebook_token";
+    String facebook_id = "facebook_id";
+    String firebase_token = "firebase_token";
+
+
+    /*
+     * Token de Facebook
+    */
+    public void setFacebook_token(String name) {
+        editor.putString(facebook_token, name);
+        editor.commit();
+    }
+
+    public String getFacebook_token() {
+        return preferences.getString(facebook_token, "");
+    }
+
+
+    /*
+     * FacebookId
+    */
+    public void setFacebook_id(String name) {
+        editor.putString(facebook_id, name);
+        editor.commit();
+    }
+
+    public String getFacebook_id() {
+        return preferences.getString(facebook_id, "");
+    }
+
+
+    /*
+     * Firebase Token
+    */
+    public void setFirebase_token(String name) {
+        editor.putString(firebase_token, name);
+        editor.commit();
+    }
+
+    public String getFirebase_token() {
+        return preferences.getString(firebase_token, "");
+    }
+
 
     public SocialAppSession(Context context) {
 

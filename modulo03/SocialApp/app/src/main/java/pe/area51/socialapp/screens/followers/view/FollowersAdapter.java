@@ -38,6 +38,13 @@ public class FollowersAdapter extends ArrayAdapter<FollowerModel> {
         ItemFollowersBinding binding = DataBindingUtil
                 .inflate(inflater, R.layout.item_followers, parent, false);
 
+        binding.following.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
         return binding.getRoot();
     }
 }
