@@ -50,6 +50,7 @@ public class SplashActivity extends SocialAppActivity
         permissions();
 
 
+        /*
         try {
             PackageInfo info = getPackageManager().getPackageInfo(
                     "pe.area51.socialapp",
@@ -64,6 +65,7 @@ public class SplashActivity extends SocialAppActivity
         } catch (NoSuchAlgorithmException e) {
 
         }
+        */
 
 
 
