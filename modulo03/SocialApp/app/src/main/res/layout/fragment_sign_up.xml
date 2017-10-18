@@ -163,6 +163,17 @@
                     android:textColor="@android:color/white"
                     android:textSize="20sp" />
 
+                <TextView
+                    android:id="@+id/btnFacebook"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/facebook_enter"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="18sp" />
+
             </LinearLayout>
 
         </ScrollView>
