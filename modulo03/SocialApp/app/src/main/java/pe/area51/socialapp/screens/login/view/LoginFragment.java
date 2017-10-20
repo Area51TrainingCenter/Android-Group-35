@@ -27,6 +27,7 @@ import org.json.JSONObject;
 import pe.area51.socialapp.R;
 import pe.area51.socialapp.SocialAppApplication;
 import pe.area51.socialapp.SocialAppGlobals;
+import pe.area51.socialapp.helpers.analytics.SocialAppAnalytics;
 import pe.area51.socialapp.helpers.log.SocialAppLog;
 import pe.area51.socialapp.helpers.session.SocialAppSession;
 import pe.area51.socialapp.screens.feed.view.FeedActivity;
@@ -87,6 +88,14 @@ public class LoginFragment extends Fragment {
 
                 if (validate()) {
 
+                    //Registramos el evento en analytics
+                    SocialAppAnalytics.trackingAction(
+                            getActivity().getApplication(),
+                            "login",
+                            "login",
+                            "login-email"
+                    );
+
                     toLogin();
 
                 } else {
@@ -119,7 +128,7 @@ public class LoginFragment extends Fragment {
     public void toLogin() {
 
         //Mostramos el loader al usuario
-        loaders.setVisibility(View.VISIBLE);
+        //loaders.setVisibility(View.VISIBLE);
 
 
         //Campos validos, se procede al registro
@@ -132,6 +141,16 @@ public class LoginFragment extends Fragment {
                     txtemail.getText().toString());
             parameters.put(SocialAppGlobals.api_par_password,
                     txtpassword.getText().toString());
+
+            //Nuevos parametros
+            parameters.put(SocialAppGlobals.api_par_facebook_token,
+                    session.getFacebook_token());
+
+            parameters.put(SocialAppGlobals.api_par_facebook_id,
+                    session.getFacebook_id());
+
+            parameters.put(SocialAppGlobals.api_par_fcm_token,
+                    session.getFirebase_token());
 
 
         } catch (JSONException e) {

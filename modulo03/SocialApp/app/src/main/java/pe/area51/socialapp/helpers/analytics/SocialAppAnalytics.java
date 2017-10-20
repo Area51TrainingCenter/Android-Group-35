@@ -29,7 +29,7 @@ public class SocialAppAnalytics {
 
     }
 
-    public static void trackingAction(Application application, String category, String action, String label, SocialAppSession sesion) {
+    public static void trackingAction(Application application, String category, String action, String label) {
 
         SocialAppLog.getMessage("trackingAction category: " + category + " action: " + action + " label: " + label);
 

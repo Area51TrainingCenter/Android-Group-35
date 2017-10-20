@@ -18,6 +18,9 @@
 
         <!-- Meta-data -->
 
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="f1a57da980fcc2cebacfa01c4872f50e4ce429a5" />
 
         <!-- IdFacebook -->
         <meta-data
@@ -66,9 +69,6 @@
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity android:name=".screens.followers.view.FollowersActivity" />
 
-        <meta-data
-            android:name="io.fabric.ApiKey"
-            android:value="f1a57da980fcc2cebacfa01c4872f50e4ce429a5" />
 
         <activity android:name=".screens.audio.view.AudioActivity" />
         <activity android:name=".screens.maps.view.SocialMapsActivity" />

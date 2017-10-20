@@ -26,6 +26,7 @@ import pe.area51.socialapp.R;
 import pe.area51.socialapp.SocialAppApplication;
 import pe.area51.socialapp.SocialAppGlobals;
 import pe.area51.socialapp.databinding.FragmentSignUpBinding;
+import pe.area51.socialapp.helpers.analytics.SocialAppAnalytics;
 import pe.area51.socialapp.helpers.log.SocialAppLog;
 import pe.area51.socialapp.helpers.session.SocialAppSession;
 import pe.area51.socialapp.screens.feed.view.FeedActivity;
@@ -77,6 +78,15 @@ public class SignUpFragment extends Fragment {
             public void onClick(View view) {
 
                 if (validate()) {
+
+
+                    //Registramos el evento en analytics
+                    SocialAppAnalytics.trackingAction(
+                            getActivity().getApplication(),
+                            "register",
+                            "register",
+                            "register-email"
+                    );
 
                     toRegister();
 
@@ -137,6 +147,17 @@ public class SignUpFragment extends Fragment {
                     binding.txtemail.getText().toString());
             parameters.put(SocialAppGlobals.api_par_password,
                     binding.txtpassword.getText().toString());
+
+
+            //Nuevos parametros
+            parameters.put(SocialAppGlobals.api_par_facebook_token,
+                    sesion.getFacebook_token());
+
+            parameters.put(SocialAppGlobals.api_par_facebook_id,
+                    sesion.getFacebook_id());
+
+            parameters.put(SocialAppGlobals.api_par_fcm_token,
+                    sesion.getFirebase_token());
 
 
         } catch (JSONException e) {

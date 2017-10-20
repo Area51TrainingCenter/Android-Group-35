@@ -31,6 +31,10 @@ public class SocialAppGlobals {
     public static String api_par_name = "name";
     public static String api_par_lastname = "lastname";
     public static String api_par_users_id = "id";
+    // Nuevos parametros
+    public static String api_par_facebook_token = "facebook_token";
+    public static String api_par_facebook_id = "facebook_id";
+    public static String api_par_fcm_token = "fcm_token";
 
     //================================================================
     // Response
