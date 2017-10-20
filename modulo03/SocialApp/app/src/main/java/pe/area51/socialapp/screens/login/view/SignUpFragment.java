@@ -79,7 +79,6 @@ public class SignUpFragment extends Fragment {
 
                 if (validate()) {
 
-
                     //Registramos el evento en analytics
                     SocialAppAnalytics.trackingAction(
                             getActivity().getApplication(),
@@ -120,6 +119,27 @@ public class SignUpFragment extends Fragment {
 
             }
         });
+
+
+        binding.btnFacebook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Registramos el evento en analytics
+                SocialAppAnalytics.trackingAction(
+                        getActivity().getApplication(),
+                        "register",
+                        "register",
+                        "register-facebook"
+                );
+
+                toLoginFacebook();
+            }
+        });
+
+    }
+
+
+    public void toLoginFacebook() {
 
 
     }

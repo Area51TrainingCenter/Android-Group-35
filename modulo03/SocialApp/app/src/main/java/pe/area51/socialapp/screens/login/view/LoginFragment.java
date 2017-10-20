@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -42,11 +43,17 @@ public class LoginFragment extends Fragment {
     Button btnlogin;
     LinearLayout loaders;
 
+    TextView btnFacebook;
+
     SocialAppSession session;
     Context context;
     Activity activity;
 
     int error_code = 0;
+
+    //Interface
+    onFacebook callback;
+
 
     public LoginFragment() {
 
@@ -73,6 +80,8 @@ public class LoginFragment extends Fragment {
         txtpassword = (EditText) view.findViewById(R.id.txtpassword);
         btnlogin = (Button) view.findViewById(R.id.btnlogin);
         loaders = (LinearLayout) view.findViewById(R.id.loaders);
+
+        btnFacebook = (TextView) view.findViewById(R.id.btnFacebook);
 
         return view;
     }
@@ -121,6 +130,24 @@ public class LoginFragment extends Fragment {
             }
         });
 
+        btnFacebook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                //Registramos el evento en analytics
+                SocialAppAnalytics.trackingAction(
+                        getActivity().getApplication(),
+                        "login",
+                        "login",
+                        "login-facebook"
+                );
+
+                //Llamamos al método initFacebook() del activity
+                SocialAppLog.getMessage("loginFacebook Fragment");
+                callback.initFacebook();
+
+            }
+        });
 
     }
 
@@ -271,4 +298,32 @@ public class LoginFragment extends Fragment {
         return !TextUtils.isEmpty(email) &&
                 android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
     }
+
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+
+        try {
+            callback = (LoginFragment.onFacebook) context;
+        } catch (ClassCastException e) {
+            //throw new ClassCastException(context.toString() + " must implement toFacebook");
+        }
+
+    }
+
+
+    //================================================
+    // Interface
+    //================================================
+
+    public interface onFacebook {
+
+        public String llamame();
+
+        public void initFacebook();
+
+    }
+
+
 }
