@@ -70,7 +70,7 @@ public class LoginActivity extends SocialAppActivity
                 callbackManager,
                 new FacebookCallback<LoginResult>() {
                     @Override
-                    public void onSuccess(LoginResult loginResult) {
+                    public void onSuccess(final LoginResult loginResult) {
 
                         GraphRequest request = GraphRequest.newMeRequest(
                                 loginResult.getAccessToken(),
@@ -79,6 +79,7 @@ public class LoginActivity extends SocialAppActivity
                                     public void onCompleted(JSONObject object, GraphResponse response) {
                                         SocialAppLog.getMessage("object: " + object);
                                         SocialAppLog.getMessage("response: " + response);
+                                        SocialAppLog.getMessage("accestoken: " + loginResult.getAccessToken());
                                     }
                                 }
                         );
