@@ -7,6 +7,8 @@ package pe.area51.socialapp;
 public class SocialAppGlobals {
 
     public static String api_domain = "http://segundo.platcel.com/";
+
+
     public static String api_version = "v1/";
 
     public static String api_controller_user = "user/";
@@ -18,6 +20,8 @@ public class SocialAppGlobals {
     public static String api_module_user_register = api_domain + api_version +
             api_controller_user + "register";
 
+    public static String api_module_user_facebook = api_domain + api_version +
+            api_controller_user + "facebook";
 
     public static String api_module_feed = api_domain + api_version +
             api_controller_feed;

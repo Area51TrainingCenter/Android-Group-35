@@ -44,6 +44,11 @@ public class SignUpFragment extends Fragment {
 
     int error_code = 0;
 
+
+    //Interface
+    onFacebook callback;
+
+
     public SignUpFragment() {
         // Required empty public constructor
     }
@@ -132,15 +137,12 @@ public class SignUpFragment extends Fragment {
                         "register-facebook"
                 );
 
-                toLoginFacebook();
+                //Llamamos al método initFacebook() del activity
+                SocialAppLog.getMessage("SignUpFragment Fragment");
+                callback.initFacebookR();
+
             }
         });
-
-    }
-
-
-    public void toLoginFacebook() {
-
 
     }
 
@@ -325,5 +327,27 @@ public class SignUpFragment extends Fragment {
                 android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
     }
 
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+
+        try {
+            callback = (SignUpFragment.onFacebook) context;
+        } catch (ClassCastException e) {
+            //throw new ClassCastException(context.toString() + " must implement toFacebook");
+        }
+
+    }
+
+    //================================================
+    // Interface
+    //================================================
+
+    public interface onFacebook {
+
+        public void initFacebookR();
+
+    }
 
 }
