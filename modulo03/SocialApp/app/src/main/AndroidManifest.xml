@@ -58,7 +58,6 @@
             android:name="com.facebook.FacebookActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
             android:label="@string/app_name" />
-
         <activity android:name=".screens.feed.view.FeedActivity" />
         <activity
             android:name=".screens.splash.view.SplashActivity"
@@ -73,12 +72,13 @@
             android:name=".screens.login.view.LoginActivity"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity android:name=".screens.followers.view.FollowersActivity" />
-
-
         <activity android:name=".screens.audio.view.AudioActivity" />
         <activity android:name=".screens.maps.view.SocialMapsActivity" />
         <activity android:name=".screens.video.view.VideoActivity" />
-        <activity android:name=".screens.youtube.view.SocialYoutubeActivity"></activity>
+        <activity android:name=".screens.youtube.view.SocialYoutubeActivity" />
+        <activity android:name=".screens.video.view.HlsActivity" />
+        <activity android:name=".screens.video.view.VideoviewActivity" />
+        <activity android:name=".screens.video.view.SurfaceActivity"></activity>
     </application>
 
 </manifest>

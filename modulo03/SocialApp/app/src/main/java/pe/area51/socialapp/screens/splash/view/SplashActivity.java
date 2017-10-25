@@ -23,6 +23,7 @@ import pe.area51.socialapp.helpers.session.SocialAppSession;
 import pe.area51.socialapp.screens.feed.view.FeedActivity;
 
 import pe.area51.socialapp.screens.login.view.LoginActivity;
+import pe.area51.socialapp.screens.video.view.VideoActivity;
 import pe.area51.socialapp.widgets.activity.SocialAppActivity;
 import pub.devrel.easypermissions.AfterPermissionGranted;
 import pub.devrel.easypermissions.EasyPermissions;
@@ -83,13 +84,13 @@ public class SplashActivity extends SocialAppActivity
 
     void toHome() {
         Intent intent = new Intent(SplashActivity.this,
-                FeedActivity.class);
+                VideoActivity.class);
         startActivity(intent);
     }
 
     void toLogin() {
         Intent intent = new Intent(SplashActivity.this,
-                LoginActivity.class);
+                VideoActivity.class);
         startActivity(intent);
     }
 

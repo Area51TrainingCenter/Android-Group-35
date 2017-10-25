@@ -6,6 +6,11 @@
 
     <string name="facebook_enter">Ingresar con Facebook</string>
 
+    <!-- Screen Video  -->
+    <string name="video_hls">Ver desde HLS</string>
+    <string name="video_surface">Ver usando SurfaceView</string>
+    <string name="video_videoview">Ver usando VideoView</string>
+
     <!-- Screen Login  -->
     <string name="login_title_login">Login</string>
     <string name="login_title_signup">SignUp</string>
