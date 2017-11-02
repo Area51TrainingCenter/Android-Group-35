@@ -23,6 +23,10 @@ public class SocialAppGlobals {
     public static String api_module_user_facebook = api_domain + api_version +
             api_controller_user + "facebook";
 
+
+    public static String api_module_user_location = api_domain +
+            api_version + api_controller_user + "location";
+
     public static String api_module_feed = api_domain + api_version +
             api_controller_feed;
 
@@ -39,6 +43,11 @@ public class SocialAppGlobals {
     public static String api_par_facebook_token = "facebook_token";
     public static String api_par_facebook_id = "facebook_id";
     public static String api_par_fcm_token = "fcm_token";
+    //Para guardar la ubicación con el api
+    public static String api_par_user_id = "user_id";
+    public static String api_par_latitud = "latitud";
+    public static String api_par_longitud = "longitud";
+
 
     //================================================================
     // Response
@@ -51,7 +60,7 @@ public class SocialAppGlobals {
     public static String api_res_email = "email";
     public static String api_res_name = "name";
     public static String api_res_lastname = "lastname";
-    public static String api_res_users_id = "id";
+    public static String api_res_users_id = "users_id";
 
 
     public static String api_res_title = "title";

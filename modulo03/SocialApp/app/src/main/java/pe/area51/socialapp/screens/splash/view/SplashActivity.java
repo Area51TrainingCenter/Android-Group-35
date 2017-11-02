@@ -23,6 +23,7 @@ import pe.area51.socialapp.helpers.session.SocialAppSession;
 import pe.area51.socialapp.screens.feed.view.FeedActivity;
 
 import pe.area51.socialapp.screens.login.view.LoginActivity;
+import pe.area51.socialapp.screens.maps.view.SocialMapsActivity;
 import pe.area51.socialapp.screens.video.view.VideoActivity;
 import pe.area51.socialapp.widgets.activity.SocialAppActivity;
 import pub.devrel.easypermissions.AfterPermissionGranted;
@@ -84,13 +85,13 @@ public class SplashActivity extends SocialAppActivity
 
     void toHome() {
         Intent intent = new Intent(SplashActivity.this,
-                VideoActivity.class);
+                SocialMapsActivity.class);
         startActivity(intent);
     }
 
     void toLogin() {
         Intent intent = new Intent(SplashActivity.this,
-                VideoActivity.class);
+                LoginActivity.class);
         startActivity(intent);
     }
 
@@ -99,7 +100,8 @@ public class SplashActivity extends SocialAppActivity
     public void permissions() {
         String[] perms = {
                 Manifest.permission.READ_EXTERNAL_STORAGE,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.ACCESS_FINE_LOCATION
         };
 
         if (EasyPermissions.hasPermissions(this, perms)) {
